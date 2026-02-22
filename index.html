@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Carnicería del Don — Catálogo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --rojo: #C0392B;
+    --rojo-oscuro: #922B21;
+    --crema: #FDF6EC;
+    --marron: #5D4037;
+    --marron-claro: #8D6E63;
+    --carbon: #1A1008;
+    --hueso: #F5ECD7;
+    --acento: #E67E22;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--crema);
+    color: var(--carbon);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  header {
+    background: var(--carbon);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, #3a1a0a 0%, #1A1008 70%);
+  }
+
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg, transparent, transparent 2px,
+      rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 4px
+    );
+  }
+
+  .badge {
+    position: relative;
+    display: inline-block;
+    background: var(--rojo);
+    color: white;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    margin-bottom: 24px;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero-title {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 900;
+    color: var(--crema);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    animation: fadeUp 1s ease both 0.2s;
+  }
+
+  .hero-title span { color: var(--rojo); display: block; }
+
+  .hero-sub {
+    position: relative;
+    color: var(--marron-claro);
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 24px;
+    animation: fadeUp 1s ease both 0.4s;
+  }
+
+  .hero-divider {
+    position: relative;
+    width: 60px; height: 2px;
+    background: var(--rojo);
+    margin: 24px auto;
+    animation: fadeUp 1s ease both 0.5s;
+  }
+
+  .hero-btns {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 1s ease both 0.6s;
+  }
+
+  .hero-cat-btn {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.15);
+    color: var(--crema);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 2px;
+  }
+
+  .hero-cat-btn i { font-size: 1.2rem; }
+
+  .hero-cat-btn:hover {
+    background: var(--rojo);
+    border-color: var(--rojo);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(192,57,43,0.4);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.2);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    animation: bounce 2s ease infinite 1.5s;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--carbon);
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .nav-btn {
+    background: none;
+    border: none;
+    color: var(--marron-claro);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-btn i { font-size: 0.95rem; }
+
+  .nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%; height: 2px;
+    background: var(--rojo);
+    transition: transform 0.2s;
+  }
+
+  .nav-btn:hover, .nav-btn.active { color: var(--crema); }
+  .nav-btn:hover::after, .nav-btn.active::after { transform: translateX(-50%) scaleX(1); }
+
+  /* SECTIONS */
+  section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  .section-icon {
+    width: 64px; height: 64px;
+    background: var(--rojo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--carbon);
+  }
+
+  .section-title em {
+    color: var(--rojo);
+    font-style: normal;
+    display: block;
+    font-size: 0.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+  }
+
+  /* GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  /* CARD */
+  .card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+  }
+
+  /* IMAGEN DE CARD */
+  .card-img {
+    width: 100%;
+    height: 200px;
+    background: var(--hueso);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .card:hover .card-img img { transform: scale(1.05); }
+
+  /* Placeholder cuando no hay imagen */
+  .card-img-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--marron-claro);
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-img-placeholder i { font-size: 3rem; opacity: 0.35; }
+  .card-img-placeholder span { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.4; }
+
+  .card-tag {
+    position: absolute;
+    top: 14px; left: 14px;
+    background: var(--rojo);
+    color: white;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .card-tag i { font-size: 0.7rem; }
+  .card-tag.tag-cerdo { background: var(--marron); }
+  .card-tag.tag-embutido { background: #7B3F00; }
+
+  .card-body { padding: 20px 22px 22px; }
+
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--carbon);
+  }
+
+  .card-desc {
+    font-size: 0.85rem;
+    color: var(--marron-claro);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 14px;
+    border-top: 1px solid var(--hueso);
+  }
+
+  .card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--rojo);
+  }
+
+  .card-price span {
+    font-size: 0.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--marron-claro);
+    margin-left: 2px;
+  }
+
+  /* WHATSAPP FLOTANTE */
+  .wsp-btn {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 999;
+    background: #25D366;
+    color: white;
+    border-radius: 50px;
+    padding: 14px 22px 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+    transition: all 0.25s;
+    text-decoration: none;
+  }
+
+  .wsp-btn:hover {
+    background: #1aad52;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 36px rgba(37,211,102,0.55);
+  }
+
+  .wsp-btn i { font-size: 1.3rem; }
+
+  .wsp-dot {
+    position: absolute;
+    top: -4px; right: -4px;
+    width: 13px; height: 13px;
+    background: #ff3b3b;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: pulse 1.8s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%   { transform: scale(1); opacity: 1; }
+    50%  { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* BANNER */
+  .banner {
+    background: var(--carbon);
+    margin: 0 -40px;
+    padding: 60px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .banner-text {
+    font-family: 'Playfair Display', serif;
+    color: var(--crema);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 700;
+    max-width: 500px;
+    line-height: 1.2;
+  }
+
+  .banner-text strong { color: var(--rojo); }
+
+  .banner-cta {
+    background: var(--rojo);
+    color: white;
+    border: none;
+    padding: 16px 36px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .banner-cta:hover { background: var(--rojo-oscuro); }
+
+  /* FOOTER */
+  footer {
+    background: var(--carbon);
+    color: var(--marron-claro);
+    text-align: center;
+    padding: 40px;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+  }
+
+  footer strong { color: var(--crema); font-family: 'Playfair Display', serif; }
+  footer i { margin-right: 6px; }
+
+  .sep {
+    border: none;
+    border-top: 1px solid var(--hueso);
+    margin: 0 40px;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .filter-bar { display: flex; gap: 8px; margin-bottom: 36px; flex-wrap: wrap; }
+  .filter-pill {
+    background: var(--hueso);
+    border: none;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--marron);
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .filter-pill:hover, .filter-pill.active { background: var(--rojo); color: white; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header id="inicio">
+  <div class="hero-texture"></div>
+  <div class="badge">Calidad garantizada</div>
+  <h1 class="hero-title">Carnicería<br><span>Jack</span></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">Elige qué quieres ver</p>
+
+  <div class="hero-btns">
+    <button class="hero-cat-btn" onclick="irA('res')">
+      <i class="fa-solid fa-cow"></i> Carne de Res
+    </button>
+    <button class="hero-cat-btn" onclick="irA('cerdo')">
+      <i class="fa-solid fa-piggy-bank"></i> Chancho
+    </button>
+    <button class="hero-cat-btn" onclick="irA('embutidos')">
+      <i class="fa-solid fa-hotdog"></i> Embutidos
+    </button>
+  </div>
+
+  <div class="scroll-hint">
+    <i class="fa-solid fa-chevron-down" style="opacity:0.3"></i>
+    o scrollea
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <button class="nav-btn active" onclick="irA('res', this)"><i class="fa-solid fa-cow"></i> Res</button>
+  <button class="nav-btn" onclick="irA('cerdo', this)"><i class="fa-solid fa-piggy-bank"></i> Chancho</button>
+  <button class="nav-btn" onclick="irA('embutidos', this)"><i class="fa-solid fa-hotdog"></i> Embutidos</button>
+</nav>
+
+<!-- SECCIÓN RES -->
+<section id="res">
+  <div class="section-header reveal">
+    <div class="section-icon"><i class="fa-solid fa-cow"></i></div>
+    <h2 class="section-title"><em>Nuestra selección</em>Carnes de Res</h2>
+  </div>
+
+  <div class="filter-bar reveal">
+    <button class="filter-pill active"><i class="fa-solid fa-border-all"></i> Todos</button>
+    <button class="filter-pill"><i class="fa-solid fa-star"></i> Premium</button>
+    <button class="filter-pill"><i class="fa-solid fa-fire"></i> Especiales</button>
+    <button class="filter-pill"><i class="fa-solid fa-tag"></i> Económicos</button>
+  </div>
+
+  <div class="grid">
+    <div class="card reveal">
+      <div class="card-img">
+        <!-- Reemplaza con: <img src="tu-foto.jpg" alt="Lomo Fino"> -->
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-star"></i> Premium</div>
+      <div class="card-body">
+        <h3 class="card-name">Lomo Fino</h3>
+        <p class="card-desc">Corte tierno y jugoso, ideal para medallones o parrilla. Seleccionado de reses de primera.</p>
+        <div class="card-footer"><div class="card-price">S/38<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-star"></i> Premium</div>
+      <div class="card-body">
+        <h3 class="card-name">Bife Ancho</h3>
+        <p class="card-desc">Corte con grasa marmoleada perfecta para asados al carbón. Sabor intenso e inigualable.</p>
+        <div class="card-footer"><div class="card-price">S/45<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
+      <div class="card-body">
+        <h3 class="card-name">Asado de Tira</h3>
+        <p class="card-desc">Clásico de la parrilla. Costillas cortadas finas con cartílago y carne bien distribuida.</p>
+        <div class="card-footer"><div class="card-price">S/28<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-tag"></i> Económico</div>
+      <div class="card-body">
+        <h3 class="card-name">Carne Molida</h3>
+        <p class="card-desc">Molida fresca al momento. Perfecta para hamburguesas, salsas y rellenos. Baja en grasa disponible.</p>
+        <div class="card-footer"><div class="card-price">S/20<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
+      <div class="card-body">
+        <h3 class="card-name">Pecho de Res</h3>
+        <p class="card-desc">Ideal para estofados y caldos reconfortantes. Carne fibrosa con sabor profundo.</p>
+        <div class="card-footer"><div class="card-price">S/22<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
+      <div class="card-body">
+        <h3 class="card-name">Menudencias</h3>
+        <p class="card-desc">Corazón, hígado, riñón. Frescos del día, ricos en hierro y nutrientes esenciales.</p>
+        <div class="card-footer"><div class="card-price">S/15<span>/ kg</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- SECCIÓN CHANCHO -->
+<section id="cerdo">
+  <div class="section-header reveal">
+    <div class="section-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+    <h2 class="section-title"><em>Lo mejor del</em>Chancho</h2>
+  </div>
+
+  <div class="grid">
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
+      <div class="card-body">
+        <h3 class="card-name">Lomo de Cerdo</h3>
+        <p class="card-desc">Pieza magra y versátil. Perfecta al horno con hierbas o a la plancha. Tierna y jugosa.</p>
+        <div class="card-footer"><div class="card-price">S/24<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
+      <div class="card-body">
+        <h3 class="card-name">Costillas de Cerdo</h3>
+        <p class="card-desc">Costillas con la carne perfectamente adherida. Excelentes para BBQ o guisos tradicionales.</p>
+        <div class="card-footer"><div class="card-price">S/26<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
+      <div class="card-body">
+        <h3 class="card-name">Panceta Fresca</h3>
+        <p class="card-desc">Capas alternas de carne y tocino. El favorito para chicharrones y platos regionales.</p>
+        <div class="card-footer"><div class="card-price">S/22<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
+      <div class="card-body">
+        <h3 class="card-name">Pierna Entera</h3>
+        <p class="card-desc">La estrella de las reuniones. Disponible fresca o marinada lista para hornear. Por encargo.</p>
+        <div class="card-footer"><div class="card-price">S/19<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
+      <div class="card-body">
+        <h3 class="card-name">Cabeza de Cerdo</h3>
+        <p class="card-desc">Para queso de chancho artesanal o caldos concentrados. Disponible entera o en trozos.</p>
+        <div class="card-footer"><div class="card-price">S/12<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
+      <div class="card-body">
+        <h3 class="card-name">Paleta de Cerdo</h3>
+        <p class="card-desc">Corte económico y sabroso. Ideal para guisos, estofados y preparaciones largas.</p>
+        <div class="card-footer"><div class="card-price">S/18<span>/ kg</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER PROMOCIONAL -->
+<div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+  <div class="banner reveal">
+    <p class="banner-text">¿Llevas más de <strong>5 kilos?</strong> Te hacemos un precio especial. Pregunta en tienda.</p>
+    <button class="banner-cta"><i class="fa-solid fa-hand-holding-heart"></i> Consultar ahora</button>
+  </div>
+</div>
+
+<hr class="sep" style="margin-top:80px;">
+
+<!-- SECCIÓN EMBUTIDOS -->
+<section id="embutidos">
+  <div class="section-header reveal">
+    <div class="section-icon"><i class="fa-solid fa-hotdog"></i></div>
+    <h2 class="section-title"><em>Artesanales y selectos</em>Embutidos</h2>
+  </div>
+
+  <div class="grid">
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
+      <div class="card-body">
+        <h3 class="card-name">Chorizo Criollo</h3>
+        <p class="card-desc">Preparado con carne de cerdo fresca, ají panca y especias tradicionales. Hecho en casa.</p>
+        <div class="card-footer"><div class="card-price">S/32<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
+      <div class="card-body">
+        <h3 class="card-name">Jamón del País</h3>
+        <p class="card-desc">Curado con sal y hierbas andinas. Sabor ahumado natural, perfecto en sándwiches o solo.</p>
+        <div class="card-footer"><div class="card-price">S/40<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
+      <div class="card-body">
+        <h3 class="card-name">Salchicha Huachana</h3>
+        <p class="card-desc">Receta tradicional peruana. Mezcla de res y cerdo con comino, ajos y ají amarillo seco.</p>
+        <div class="card-footer"><div class="card-price">S/28<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
+      <div class="card-body">
+        <h3 class="card-name">Morcilla Negra</h3>
+        <p class="card-desc">Embutido de sangre con arroz, cebolla y especias. Receta familiar de tres generaciones.</p>
+        <div class="card-footer"><div class="card-price">S/18<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
+      <div class="card-body">
+        <h3 class="card-name">Tocino Ahumado</h3>
+        <p class="card-desc">Panceta curada y ahumada en leña. Crujiente en la sartén, irresistible en todo plato.</p>
+        <div class="card-footer"><div class="card-price">S/35<span>/ kg</span></div></div>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
+      <div class="card-body">
+        <h3 class="card-name">Pepperoni Casero</h3>
+        <p class="card-desc">Curado con pimentón dulce y picante. Rodajas perfectas para pizza o tabla de quesos.</p>
+        <div class="card-footer"><div class="card-price">S/42<span>/ kg</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Carnicería Jack</strong></p>
+  <p style="margin-top:10px;"><i class="fa-solid fa-location-dot"></i> Jr. Mercado 143, Pucallpa &nbsp;|&nbsp; <i class="fa-solid fa-clock"></i> Lun–Sáb: 6am–7pm · Dom: 6am–2pm</p>
+  <p style="margin-top:16px;font-size:0.75rem;color:#4a3020;">Precios en soles peruanos · Sujetos a variación · Consultar disponibilidad</p>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="wsp-btn" href="https://wa.me/51953050859?text=Hola%2C%20vi%20su%20cat%C3%A1logo%20y%20quisiera%20consultar%20sobre%20sus%20productos" target="_blank">
+  <div class="wsp-dot"></div>
+  <i class="fa-brands fa-whatsapp"></i>
+  Consultar por WhatsApp
+</a>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+
+  // Navegación
+  function irA(id, btn) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const navHeight = document.querySelector('nav').offsetHeight;
+    const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+    window.scrollTo({ top, behavior: 'smooth' });
+    if (btn) {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  }
+
+  // Filter pills
+  document.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      pill.closest('.filter-bar').querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+
+  // Nav highlight on scroll
+  window.addEventListener('scroll', () => {
+    const sections = ['res','cerdo','embutidos'];
+    const btns = document.querySelectorAll('.nav-btn');
+    let current = 0;
+    sections.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 200) current = i;
+    });
+    btns.forEach(b => b.classList.remove('active'));
+    btns[current]?.classList.add('active');
+  });
+</script>
+</body>
+</html>
