@@ -266,7 +266,6 @@
     box-shadow: 0 16px 40px rgba(0,0,0,0.14);
   }
 
-  /* IMAGEN DE CARD */
   .card-img {
     width: 100%;
     height: 200px;
@@ -288,7 +287,6 @@
 
   .card:hover .card-img img { transform: scale(1.05); }
 
-  /* Placeholder cuando no hay imagen */
   .card-img-placeholder {
     display: flex;
     flex-direction: column;
@@ -316,6 +314,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    z-index: 2;
   }
 
   .card-tag i { font-size: 0.7rem; }
@@ -406,48 +405,6 @@
     50%  { transform: scale(1.5); opacity: 0.5; }
     100% { transform: scale(1); opacity: 1; }
   }
-
-  /* BANNER */
-  .banner {
-    background: var(--carbon);
-    margin: 0 -40px;
-    padding: 60px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-
-  .banner-text {
-    font-family: 'Playfair Display', serif;
-    color: var(--crema);
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    font-weight: 700;
-    max-width: 500px;
-    line-height: 1.2;
-  }
-
-  .banner-text strong { color: var(--rojo); }
-
-  .banner-cta {
-    background: var(--rojo);
-    color: white;
-    border: none;
-    padding: 16px 36px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .banner-cta:hover { background: var(--rojo-oscuro); }
 
   /* FOOTER */
   footer {
@@ -543,7 +500,7 @@
   <button class="nav-btn" onclick="irA('embutidos', this)"><i class="fa-solid fa-hotdog"></i> Embutidos</button>
 </nav>
 
-<!-- SECCIÓN RES -->
+<!-- ═══════════════════ SECCIÓN RES ═══════════════════ -->
 <section id="res">
   <div class="section-header reveal">
     <div class="section-icon"><i class="fa-solid fa-cow"></i></div>
@@ -558,18 +515,21 @@
   </div>
 
   <div class="grid">
+
+    <!-- Lomo Fino -->
     <div class="card reveal">
       <div class="card-img">
-        <!-- Reemplaza con: <img src="tu-foto.jpg" alt="Lomo Fino"> -->
         <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
       </div>
       <div class="card-tag"><i class="fa-solid fa-star"></i> Premium</div>
       <div class="card-body">
         <h3 class="card-name">Lomo Fino</h3>
-        <p class="card-desc">Corte tierno y jugoso, ideal para medallones o parrilla. Seleccionado de reses de primera.</p>
+        <p class="card-desc">El corte más tierno de la res. Jugoso y suave, ideal para medallones al punto, a la plancha o en parrilla. Seleccionado de reses de primera calidad.</p>
         <div class="card-footer"><div class="card-price">S/38<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Bife Ancho -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
@@ -577,10 +537,12 @@
       <div class="card-tag"><i class="fa-solid fa-star"></i> Premium</div>
       <div class="card-body">
         <h3 class="card-name">Bife Ancho</h3>
-        <p class="card-desc">Corte con grasa marmoleada perfecta para asados al carbón. Sabor intenso e inigualable.</p>
+        <p class="card-desc">Corte ribeye con grasa marmoleada perfecta. Sabor intenso e inigualable en cada mordida. El favorito de los amantes de la parrilla al carbón.</p>
         <div class="card-footer"><div class="card-price">S/45<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Asado de Tira -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
@@ -588,10 +550,12 @@
       <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
       <div class="card-body">
         <h3 class="card-name">Asado de Tira</h3>
-        <p class="card-desc">Clásico de la parrilla. Costillas cortadas finas con cartílago y carne bien distribuida.</p>
+        <p class="card-desc">Costillas cortadas en tiras finas, con cartílago y carne bien distribuida. El clásico infaltable en toda parrillada. Se cocina lento para máximo sabor.</p>
         <div class="card-footer"><div class="card-price">S/28<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Carne Molida -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
@@ -599,10 +563,12 @@
       <div class="card-tag"><i class="fa-solid fa-tag"></i> Económico</div>
       <div class="card-body">
         <h3 class="card-name">Carne Molida</h3>
-        <p class="card-desc">Molida fresca al momento. Perfecta para hamburguesas, salsas y rellenos. Baja en grasa disponible.</p>
+        <p class="card-desc">Molida fresca al momento del pedido. Perfecta para hamburguesas, salsas boloñesa, tacos y rellenos. Disponible en versión regular y baja en grasa.</p>
         <div class="card-footer"><div class="card-price">S/20<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Pecho de Res -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
@@ -610,10 +576,12 @@
       <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
       <div class="card-body">
         <h3 class="card-name">Pecho de Res</h3>
-        <p class="card-desc">Ideal para estofados y caldos reconfortantes. Carne fibrosa con sabor profundo.</p>
+        <p class="card-desc">Corte fibroso de cocción lenta ideal para estofados, caldos reconfortantes y sancochado. Aporta cuerpo y sabor profundo al caldo.</p>
         <div class="card-footer"><div class="card-price">S/22<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Asado Pejerrey -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
@@ -621,64 +589,95 @@
       <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
       <div class="card-body">
         <h3 class="card-name">Asado Pejerrey</h3>
-        <p class="card-desc">Corazón, hígado, riñón. Frescos del día, ricos en hierro y nutrientes esenciales.</p>
+        <p class="card-desc">Corte largo y delgado del costillar, con hueso fino y carne sabrosa. Muy apreciado en la parrilla por su textura y el contraste entre carne y grasa.</p>
         <div class="card-footer"><div class="card-price">S/35<span>/ kg</span></div></div>
       </div>
     </div>
-  </div>
-  <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
+
+    <!-- Filete de Res -->
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
       <div class="card-body">
-        <h3 class="card-name">Filete de res</h3>
-        <p class="card-desc">Corazón, hígado, riñón. Frescos del día, ricos en hierro y nutrientes esenciales.</p>
+        <h3 class="card-name">Filete de Res</h3>
+        <p class="card-desc">Corte magro y versátil, perfecto para bistec a lo pobre, saltados o apanados. Tierno, con bajo contenido de grasa y fácil preparación.</p>
         <div class="card-footer"><div class="card-price">S/22<span>/ kg</span></div></div>
       </div>
     </div>
-  </div>
-  <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
+
+    <!-- Asado Cuadrado -->
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
       <div class="card-body">
         <h3 class="card-name">Asado Cuadrado</h3>
-        <p class="card-desc">Corazón, hígado, riñón. Frescos del día, ricos en hierro y nutrientes esenciales.</p>
+        <p class="card-desc">Pieza del cuarto trasero de la res, compacta y con buena infiltración de grasa. Excelente para hornear entero, estofar o preparar en olla a presión.</p>
         <div class="card-footer"><div class="card-price">S/35<span>/ kg</span></div></div>
       </div>
     </div>
-  </div>
-  <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
+
+    <!-- Picaña de Res -->
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-star"></i> Premium</div>
       <div class="card-body">
-        <h3 class="card-name">Picaña de res</h3>
-        <p class="card-desc">Corazón, hígado, riñón. Frescos del día, ricos en hierro y nutrientes esenciales.</p>
+        <h3 class="card-name">Picaña de Res</h3>
+        <p class="card-desc">El corte estrella de la parrilla brasileña. Cubierta con una capa de grasa natural que le da un sabor y jugosidad incomparables. Siempre a la parrilla.</p>
         <div class="card-footer"><div class="card-price">S/40<span>/ kg</span></div></div>
       </div>
     </div>
-  </div>
-  <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
+
+    <!-- Churrasco de Res -->
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
       <div class="card-body">
-        <h3 class="card-name">Churrasco de res</h3>
-        <p class="card-desc">Corazón, hígado, riñón. Frescos del día, ricos en hierro y nutrientes esenciales.</p>
+        <h3 class="card-name">Churrasco de Res</h3>
+        <p class="card-desc">Bistec grueso y jugoso del lomo o costilla. Ideal para la plancha o parrilla a fuego alto. Sabor intenso con textura firme y agradable.</p>
         <div class="card-footer"><div class="card-price">S/24<span>/ kg</span></div></div>
       </div>
     </div>
-  </div>
-  <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
+
+    <!-- Corazón Nacional -->
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-tag"></i> Económico</div>
       <div class="card-body">
-        <h3 class="card-name">Corazon Nacional</h3>
-        <p class="card-desc">Corazón, hígado, riñón. Frescos del día, ricos en hierro y nutrientes esenciales.</p>
+        <h3 class="card-name">Corazón Nacional</h3>
+        <p class="card-desc">El clásico de las parrillas peruanas. Anticucho en su máxima expresión. Marinado con ají panca, comino y vinagre, queda crocante por fuera y suave por dentro.</p>
         <div class="card-footer"><div class="card-price">S/20<span>/ kg</span></div></div>
       </div>
     </div>
-  </div>
-  <div class="card-tag"><i class="fa-solid fa-fire"></i> Especial</div>
+
+    <!-- Menudencias -->
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag"><i class="fa-solid fa-tag"></i> Económico</div>
       <div class="card-body">
         <h3 class="card-name">Menudencias</h3>
-        <p class="card-desc">Corazón, hígado, riñón. Frescos del día, ricos en hierro y nutrientes esenciales.</p>
+        <p class="card-desc">Hígado, bofe, riñón y bazo frescos del día. Ricos en hierro, zinc y proteínas. Perfectos para caldos reconstituyentes, guisos y platos tradicionales de la selva.</p>
         <div class="card-footer"><div class="card-price">S/15<span>/ kg</span></div></div>
       </div>
     </div>
+
   </div>
 </section>
 
 <hr class="sep">
 
-<!-- SECCIÓN CHANCHO -->
+<!-- ═══════════════════ SECCIÓN CHANCHO ═══════════════════ -->
 <section id="cerdo">
   <div class="section-header reveal">
     <div class="section-icon"><i class="fa-solid fa-piggy-bank"></i></div>
@@ -686,6 +685,8 @@
   </div>
 
   <div class="grid">
+
+    <!-- Lomo de Cerdo -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
@@ -693,10 +694,12 @@
       <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
       <div class="card-body">
         <h3 class="card-name">Lomo de Cerdo</h3>
-        <p class="card-desc">Pieza magra y versátil. Perfecta al horno con hierbas o a la plancha. Tierna y jugosa.</p>
+        <p class="card-desc">Pieza magra, tierna y muy versátil. Perfecta al horno con hierbas aromáticas, a la plancha o rellena. Baja en grasa sin perder jugosidad.</p>
         <div class="card-footer"><div class="card-price">S/24<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Costillar de Cerdo -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
@@ -704,10 +707,12 @@
       <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
       <div class="card-body">
         <h3 class="card-name">Costillar de Cerdo</h3>
-        <p class="card-desc">Costillas con la carne perfectamente adherida. Excelentes para BBQ o guisos tradicionales.</p>
+        <p class="card-desc">Costillas con la carne bien adherida al hueso. Ideales para BBQ, hornear con salsa, guisos tradicionales o el clásico chicharrón de costilla.</p>
         <div class="card-footer"><div class="card-price">S/25<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Panceta Fresca -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
@@ -715,10 +720,12 @@
       <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
       <div class="card-body">
         <h3 class="card-name">Panceta Fresca</h3>
-        <p class="card-desc">Capas alternas de carne y tocino. El favorito para chicharrones y platos regionales.</p>
+        <p class="card-desc">Capas alternadas de carne y tocino, sabrosa y jugosa. El favorito para chicharrones crocantes, fritanga y platos regionales de la selva peruana.</p>
         <div class="card-footer"><div class="card-price">S/22<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Pierna Entera -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
@@ -726,10 +733,12 @@
       <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
       <div class="card-body">
         <h3 class="card-name">Pierna Entera</h3>
-        <p class="card-desc">La estrella de las reuniones. Disponible fresca o marinada lista para hornear. Por encargo.</p>
+        <p class="card-desc">La estrella de los eventos y reuniones familiares. Disponible fresca o marinada, lista para el horno. Se puede pedir por encargo con tiempo.</p>
         <div class="card-footer"><div class="card-price">S/16<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Cabeza de Cerdo -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
@@ -737,10 +746,12 @@
       <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
       <div class="card-body">
         <h3 class="card-name">Cabeza de Cerdo</h3>
-        <p class="card-desc">Para queso de chancho artesanal o caldos concentrados. Disponible entera o en trozos.</p>
+        <p class="card-desc">Perfecta para preparar queso de chancho artesanal o caldos concentrados muy nutritivos. Disponible entera o en trozos según su necesidad.</p>
         <div class="card-footer"><div class="card-price">S/12<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Brazuela de Cerdo -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
@@ -748,39 +759,43 @@
       <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
       <div class="card-body">
         <h3 class="card-name">Brazuela de Cerdo</h3>
-        <p class="card-desc">Corte económico y sabroso. Ideal para guisos, estofados y preparaciones largas.</p>
+        <p class="card-desc">Corte económico del hombro delantero, sabroso y con buena cantidad de carne. Ideal para guisos, estofados, adovado o preparaciones de cocción larga.</p>
         <div class="card-footer"><div class="card-price">S/15<span>/ kg</span></div></div>
       </div>
     </div>
-    <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
+
+    <!-- Chuleta Mariposa -->
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
       <div class="card-body">
-        <h3 class="card-name">Chuleta de cerdo mariposa mandiola</h3>
-        <p class="card-desc">La estrella de las reuniones. Disponible fresca o marinada lista para hornear. Por encargo.</p>
+        <h3 class="card-name">Chuleta Mariposa Mandiola</h3>
+        <p class="card-desc">Chuleta doble cortada al centro, con forma de mariposa. Gruesa, tierna y con hueso. Se abre en la plancha para una cocción pareja y presentación espectacular.</p>
         <div class="card-footer"><div class="card-price">S/22<span>/ kg</span></div></div>
       </div>
     </div>
-  </div>
-  <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
+
+    <!-- Tocino -->
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-img-placeholder"><i class="fa-solid fa-bacon"></i><span>Agregar foto</span></div>
+      </div>
+      <div class="card-tag tag-cerdo"><i class="fa-solid fa-piggy-bank"></i> Chancho</div>
       <div class="card-body">
         <h3 class="card-name">Tocino</h3>
-        <p class="card-desc">La estrella de las reuniones. Disponible fresca o marinada lista para hornear. Por encargo.</p>
+        <p class="card-desc">Grasa dorsal del cerdo, firme y de color blanco marfil. Esencial para dar sabor a guisos, freír chicharrones y mantener la jugosidad en carnes asadas.</p>
         <div class="card-footer"><div class="card-price">S/15<span>/ kg</span></div></div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- BANNER PROMOCIONAL -->
-<!--<div style="max-width:1200px;margin:0 auto;padding:0 40px;">
-  <div class="banner reveal">
-    <p class="banner-text">¿Llevas más de <strong>5 kilos?</strong> Te hacemos un precio especial. Pregunta en tienda.</p>
-    <button class="banner-cta"><i class="fa-solid fa-hand-holding-heart"></i> Consultar ahora</button>
-  </div>
-</div>-->
-
 <hr class="sep" style="margin-top:80px;">
 
-<!-- SECCIÓN EMBUTIDOS -->
+<!-- ═══════════════════ SECCIÓN EMBUTIDOS ═══════════════════ -->
 <section id="embutidos">
   <div class="section-header reveal">
     <div class="section-icon"><i class="fa-solid fa-hotdog"></i></div>
@@ -788,17 +803,21 @@
   </div>
 
   <div class="grid">
+
+    <!-- Chorizo Artesanal -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
       </div>
       <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
       <div class="card-body">
-        <h3 class="card-name">Chorizo Artesanal finas yerbas aji charapita</h3>
-        <p class="card-desc">Preparado con carne de cerdo fresca, ají panca y especias tradicionales. Hecho en casa.</p>
+        <h3 class="card-name">Chorizo Artesanal Finas Hierbas y Ají Charapita</h3>
+        <p class="card-desc">Elaborado con carne de cerdo fresca, ají charapita de la selva, finas hierbas y especias propias de la casa. Sabor intenso con toque picante y aroma inconfundible.</p>
         <div class="card-footer"><div class="card-price">S/45<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Chorizo Parrillero -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
@@ -806,10 +825,12 @@
       <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
       <div class="card-body">
         <h3 class="card-name">Chorizo Parrillero</h3>
-        <p class="card-desc">Curado con sal y hierbas andinas. Sabor ahumado natural, perfecto en sándwiches o solo.</p>
+        <p class="card-desc">Chorizo grueso y jugoso, preparado para reventar en la parrilla. Mezcla de cerdo y res con ajo, pimentón y hierbas. Se sirve entero o en rodajas.</p>
         <div class="card-footer"><div class="card-price">S/45<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Salchicha Huachana -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
@@ -817,10 +838,12 @@
       <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
       <div class="card-body">
         <h3 class="card-name">Salchicha Huachana</h3>
-        <p class="card-desc">Receta tradicional peruana. Mezcla de res y cerdo con comino, ajos y ají amarillo seco.</p>
+        <p class="card-desc">Receta tradicional peruana con mezcla de res y cerdo, comino, ajo molido y ají amarillo seco. Perfecta frita, a la plancha o en saltados con cebolla.</p>
         <div class="card-footer"><div class="card-price">S/28<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Morcilla Negra -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
@@ -828,10 +851,12 @@
       <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
       <div class="card-body">
         <h3 class="card-name">Morcilla Negra</h3>
-        <p class="card-desc">Embutido de sangre con arroz, cebolla y especias. Receta familiar de tres generaciones.</p>
+        <p class="card-desc">Embutido de sangre de cerdo con arroz, cebolla china y especias. Receta familiar de tres generaciones. Se sirve frita o a la brasa con yuca o pan.</p>
         <div class="card-footer"><div class="card-price">S/18<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Tocino Ahumado -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
@@ -839,10 +864,12 @@
       <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
       <div class="card-body">
         <h3 class="card-name">Tocino Ahumado</h3>
-        <p class="card-desc">Panceta curada y ahumada en leña. Crujiente en la sartén, irresistible en todo plato.</p>
+        <p class="card-desc">Panceta curada en sal y ahumada en leña de manera artesanal. Crujiente al sartén, con aroma a humo natural. Irresistible en desayunos, sandwiches o wraps.</p>
         <div class="card-footer"><div class="card-price">S/35<span>/ kg</span></div></div>
       </div>
     </div>
+
+    <!-- Pepperoni Casero -->
     <div class="card reveal">
       <div class="card-img">
         <div class="card-img-placeholder"><i class="fa-solid fa-hotdog"></i><span>Agregar foto</span></div>
@@ -850,10 +877,11 @@
       <div class="card-tag tag-embutido"><i class="fa-solid fa-hotdog"></i> Embutido</div>
       <div class="card-body">
         <h3 class="card-name">Pepperoni Casero</h3>
-        <p class="card-desc">Curado con pimentón dulce y picante. Rodajas perfectas para pizza o tabla de quesos.</p>
+        <p class="card-desc">Curado artesanalmente con pimentón dulce, picante y especias italianas. Rodajas perfectas para pizza, tabla de embutidos o snack directo del paquete.</p>
         <div class="card-footer"><div class="card-price">S/42<span>/ kg</span></div></div>
       </div>
     </div>
+
   </div>
 </section>
 
